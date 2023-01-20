@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Codeception\Lib;
 
+use Dotenv\Repository\Adapter\PutenvAdapter;
 use Codeception\Exception\ConfigurationException;
 use Dotenv\Dotenv as PhpDotenv;
 use Dotenv\Repository\RepositoryBuilder;
