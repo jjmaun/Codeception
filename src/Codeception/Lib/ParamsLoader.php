@@ -154,7 +154,9 @@ class ParamsLoader
             && class_exists(RepositoryBuilder::class)
             && method_exists(RepositoryBuilder::class, 'createWithDefaultAdapters')
         ) {
-            $repository = RepositoryBuilder::createWithDefaultAdapters()->make();
+//            $repository = RepositoryBuilder::createWithDefaultAdapters()->make();
+                $repository = RepositoryBuilder::createWithDefaultAdapters()->addAdapter(PutenvAdapter::class)
+                ->immutable()->make();
             $dotenv = PhpDotenv::create($repository, codecept_root_dir(), codecept_relative_path($file));
 
             return $dotenv->load();
